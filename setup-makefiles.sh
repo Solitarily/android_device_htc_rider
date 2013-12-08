@@ -24,7 +24,8 @@ MAKEFILE=../../../$OUTDIR/$DEVICE-vendor-blobs.mk
 PRODUCT_COPY_FILES += \\
 	$OUTDIR/proprietary/lib/libacdbloader.so:obj/lib/libacdbloader.so \\
 	$OUTDIR/proprietary/lib/libacdbmapper.so:obj/lib/libacdbmapper.so \\
-	$OUTDIR/proprietary/lib/libaudioalsa.so:obj/lib/libaudioalsa.so
+	$OUTDIR/proprietary/lib/libaudioalsa.so:obj/lib/libaudioalsa.so \\
+	$OUTDIR//proprietary/lib/hw/vendor-camera.msm8660.so:obj/lib/vendor-camera.msm8660.so
 
 PRODUCT_COPY_FILES += \\
 EOF

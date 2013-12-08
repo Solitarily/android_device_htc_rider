@@ -20,15 +20,8 @@
 # definition file).
 #
 
-# WARNING: This line must come *before* including the proprietary
-# variant, so that it gets overwritten by the parent (which goes
-# against the traditional rules of inheritance).
-
 # inherit from common msm8660
 -include device/htc/msm8660-common/BoardConfigCommon.mk
-
-# Audio
-BOARD_HAVE_HTC_AUDIO := true
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := rider
@@ -36,15 +29,13 @@ TARGET_BOOTLOADER_BOARD_NAME := rider
 # Kernel [Settings]
 BOARD_KERNEL_BASE := 0x48000000
 BOARD_KERNEL_PAGE_SIZE := 2048
-BOARD_KERNEL_CMDLINE := console=ttyHSL0 androidboot.hardware=rider no_console_suspend=1
+BOARD_KERNEL_CMDLINE := console=ttyHSL0 androidboot.hardware=rider no_console_suspend=1 androidboot.selinux=permissive
 
 # Kernel [Build]
 TARGET_KERNEL_CONFIG := rider_defconfig
-TARGET_KERNEL_SOURCE := kernel/htc/msm8660
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := linaro-arm-cortex-a8
+TARGET_KERNEL_CUSTOM_TOOLCHAIN_SUFFIX := arm-cortex_a8-linux-gnueabi
 BUILD_KERNEL := true
-
-# Kernel [Prebuilt]
-#TARGET_PREBUILT_KERNEL := device/htc/rider/prebuilt/kernel
 
 # Bluetooth/Wifi
 -include device/htc/msm8660-common/bcmdhd.mk
@@ -53,8 +44,12 @@ BUILD_KERNEL := true
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := rider
 
 # RIL
-BOARD_USE_NEW_LIBRIL_HTC := true
-#TARGET_PROVIDES_LIBRIL := vendor/htc/rider/proprietary/libril.so
+BOARD_USES_LEGACY_RIL := true
+
+# Recovery
+TARGET_RECOVERY_FSTAB = device/htc/rider/ramdisk/fstab.rider
+TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
+RECOVERY_FSTAB_VERSION := 2
 
 # Filesystem
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -63,4 +58,3 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16776192
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 838859776
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 1252770816
 BOARD_FLASH_BLOCK_SIZE := 262144
-BOARD_HAS_NO_SELECT_BUTTON := true

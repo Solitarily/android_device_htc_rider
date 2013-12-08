@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2011 The CyanogenMod Project
+# Copyright (C) 2013 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,19 +14,16 @@
 # limitations under the License.
 #
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-
-# Device ID
-PRODUCT_NAME := full_rider
-PRODUCT_DEVICE := rider
 
 # common msm8660 configs
 $(call inherit-product, device/htc/msm8660-common/msm8660.mk)
 
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+
 DEVICE_PACKAGE_OVERLAYS += device/htc/rider/overlay
 
-# GPS and sensors
+# GPS
 PRODUCT_PACKAGES += \
     gps.rider
 
@@ -38,8 +35,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += device/htc/rider/configs/gps.conf:system/etc/gps.conf
 
 # Bluetooth firmware
-PRODUCT_COPY_FILES += \
-    device/htc/msm8660-common/firmware/bcm4329.hcd:system/vendor/firmware/bcm4329.hcd
+$(call inherit-product, device/htc/msm8660-common/bcm_hcd.mk)
 
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
 
@@ -60,7 +56,7 @@ PRODUCT_COPY_FILES += \
 
 # Some misc configuration files
 PRODUCT_COPY_FILES += \
-    device/htc/rider/vold.fstab:system/etc/vold.fstab
+    device/htc/rider/configs/99kernel:system/etc/init.d/99kernel
 
 # Keylayouts and Keychars
 PRODUCT_COPY_FILES += \
@@ -111,6 +107,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
+# Adreno Drivers
+PRODUCT_COPY_FILES += \
+    device/htc/rider/firmware/a225_pfp.fw:system/etc/firmware/a225_pfp.fw \
+    device/htc/rider/firmware/a225_pm4.fw:system/etc/firmware/a225_pm4.fw \
+    device/htc/rider/firmware/a225p5_pm4.fw:system/etc/firmware/a225p5_pm4.fw \
+    device/htc/rider/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
+    device/htc/rider/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw
+
 ## misc
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.setupwizard.enable_bypass=1 \
@@ -128,3 +132,7 @@ $(call inherit-product, device/htc/rider/media_a1026.mk)
 $(call inherit-product, device/htc/rider/media_htcaudio.mk)
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
+
+# Device ID
+PRODUCT_NAME := full_rider
+PRODUCT_DEVICE := rider

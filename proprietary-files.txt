@@ -1,22 +1,19 @@
 # Configuration files
 etc/agps_rm
 etc/vpimg
+etc/permissions/com.google.widevine.software.drm.xml
+framework/com.google.widevine.software.drm.jar
 
 # Executable files
-bin/awb_camera
-bin/lsc_camera
-bin/cam_ins_spmo
 bin/load-modem.sh
 bin/sound8x60
 bin/charging
 bin/htcbatt
 bin/ipd
-bin/mpdecision
 bin/netmgrd
 bin/netsharing
 bin/qmuxd
 bin/rmt_storage
-bin/thermald
 xbin/wireless_modem
 
 # Audio
@@ -27,7 +24,7 @@ lib/libaudioalsa.so
 lib/libhtc_acoustic.so
 
 # Camera
-lib/hw/camera.default.so
+lib/hw/vendor-camera.msm8660.so
 lib/libcameraface.so
 lib/libcamerapp.so
 lib/libgemini.so
@@ -37,7 +34,6 @@ lib/libmmjpeg.so
 lib/liboemcamera.so
 lib/libOlaEngine.so
 lib/libposteffect.so
-lib/libcameraservice.so
 
 # Chromatix
 lib/libchromatix_imx105_default_video.so
@@ -84,30 +80,6 @@ lib/libnetmgr.so
 lib/libqdp.so
 lib/libqmiservices.so
 lib/libqmi.so
-
-# Modem firmware
-vendor/firmware/modem.b00
-vendor/firmware/modem.b01
-vendor/firmware/modem.b02
-vendor/firmware/modem.b03
-vendor/firmware/modem.b04
-vendor/firmware/modem.b05
-vendor/firmware/modem.b06
-vendor/firmware/modem.b07
-vendor/firmware/modem.b08
-vendor/firmware/modem.b09
-vendor/firmware/modem.mdt
-
-# Q6 firmware
-vendor/firmware/q6.b00
-vendor/firmware/q6.b01
-vendor/firmware/q6.b02
-vendor/firmware/q6.b03
-vendor/firmware/q6.b04
-vendor/firmware/q6.b05
-vendor/firmware/q6.b06
-vendor/firmware/q6.b07
-vendor/firmware/q6.mdt
 
 # Sensors
 lib/hw/sensors.rider.so

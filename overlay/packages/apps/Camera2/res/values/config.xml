@@ -14,7 +14,18 @@
      limitations under the License.
 -->
 
+<!-- camera app resources. -->
 <resources>
-    <!-- Volume Rocker Wake Support -->
-    <bool name="config_show_volumeRockerWake">true</bool>
+    <!-- HTC Camcorder Mode -->
+    <!-- <bool name="needsHTCCamMode">true</bool> -->
+
+    <!-- Allows setting video size before recording starts -->
+    <bool name="needsEarlyVideoSize">true</bool>
+
+    <!-- The camera removes the focus modes by default when touch-to-focus
+        exists. Use this option to change that behavior -->
+    <bool name="wantsFocusModes">true</bool>
+
+    <!-- Disable touch snapshot in video recording -->
+    <bool name="disableTouchSnapshot">true</bool>
 </resources>
