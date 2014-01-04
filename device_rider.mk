@@ -27,10 +27,6 @@ DEVICE_PACKAGE_OVERLAYS += device/htc/rider/overlay
 PRODUCT_PACKAGES += \
     gps.rider
 
-# Torch
-PRODUCT_PACKAGES += \
-    Torch
-
 ## The gps config appropriate for this device
 PRODUCT_COPY_FILES += device/htc/rider/configs/gps.conf:system/etc/gps.conf
 
@@ -54,23 +50,27 @@ PRODUCT_COPY_FILES += \
     device/htc/rider/recovery/sbin/detect_key:recovery/root/sbin/detect_key \
     device/htc/rider/recovery/sbin/htcbatt:recovery/root/sbin/htcbatt
 
-# Some misc configuration files
-PRODUCT_COPY_FILES += \
-    device/htc/rider/configs/99kernel:system/etc/init.d/99kernel
 
-# Keylayouts and Keychars
+# keylayouts
 PRODUCT_COPY_FILES += \
-    device/htc/rider/keychars/BT_HID.kcm.bin:system/usr/keychars/BT_HID.kcm.bin \
-    device/htc/rider/keychars/qwerty.kcm.bin:system/usr/keychars/qwerty.kcm.bin \
-    device/htc/rider/keychars/qwerty2.kcm.bin:system/usr/keychars/qwerty2.kcm.bin \
-    device/htc/rider/keychars/rider-keypad.kcm.bin:system/usr/keychars/rider-keypad.kcm.bin \
     device/htc/rider/keylayout/atmel-touchscreen.kl:system/usr/keylayout/atmel-touchscreen.kl \
     device/htc/rider/keylayout/h2w_headset.kl:system/usr/keylayout/h2w_headset.kl \
     device/htc/rider/keylayout/rider-keypad.kl:system/usr/keylayout/rider-keypad.kl
 
-# Input device config
+# Keychars
+PRODUCT_COPY_FILES += \
+    device/htc/rider/keychars/BT_HID.kcm.bin:system/usr/keychars/BT_HID.kcm.bin \
+    device/htc/rider/keychars/qwerty.kcm.bin:system/usr/keychars/qwerty.kcm.bin \
+    device/htc/rider/keychars/qwerty2.kcm.bin:system/usr/keychars/qwerty2.kcm.bin \
+    device/htc/rider/keychars/rider-keypad.kcm.bin:system/usr/keychars/rider-keypad.kcm.bin
+
+# idc
 PRODUCT_COPY_FILES += \
     device/htc/rider/idc/atmel-touchscreen.idc:system/usr/idc/atmel-touchscreen.idc
+
+# Some misc configuration files
+PRODUCT_COPY_FILES += \
+    device/htc/rider/configs/99kernel:system/etc/init.d/99kernel
 
 # HTC BT Audio tune
 PRODUCT_COPY_FILES += device/htc/rider/dsp/AudioBTID.csv:system/etc/AudioBTID.csv
@@ -83,6 +83,9 @@ PRODUCT_COPY_FILES += \
     device/htc/rider/dsp/CodecDSPID.txt:system/etc/CodecDSPID.txt \
     device/htc/rider/dsp/TPA2051_CFG.csv:system/etc/TPA2051_CFG.csv \
     device/htc/rider/dsp/voicemail-conf.xml:system/etc/voicemail-conf.xml \
+
+# Sound Image DSP
+PRODUCT_COPY_FILES += \
     device/htc/rider/dsp/soundimage/Sound_FM_HP.txt:system/etc/soundimage/Sound_FM_HP.txt \
     device/htc/rider/dsp/soundimage/Sound_FM_SPK.txt:system/etc/soundimage/Sound_FM_SPK.txt \
     device/htc/rider/dsp/soundimage/Sound_Original.txt:system/etc/soundimage/Sound_Original.txt \
@@ -115,12 +118,13 @@ PRODUCT_COPY_FILES += \
     device/htc/rider/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
     device/htc/rider/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw
 
-## misc
+# misc
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.setupwizard.enable_bypass=1 \
     dalvik.vm.lockprof.threshold=500 \
     ro.com.google.locationfeatures=1 \
-    dalvik.vm.dexopt-flags=m=y
+    dalvik.vm.dexopt-flags=m=y \
+    ro.goo.version=$(shell date +%s)
 
 # call the proprietary setup
 $(call inherit-product-if-exists, vendor/htc/rider/rider-vendor.mk)

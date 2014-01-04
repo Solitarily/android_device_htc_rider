@@ -18,7 +18,7 @@ on init
     symlink /storage/usbdisk /usbdisk0
     symlink /storage/usbdisk /mnt/usbdisk0
 
-    #8x60: firmware
+    # load msm8660 firmware so things have time to initialize
     rm /vendor
     mkdir /vendor 0771 system system
     mkdir /vendor/firmware 0771 system system
@@ -75,13 +75,12 @@ on fs
     symlink /system/vendor/firmware/fw_bcmdhd_p2p.bin /vendor/firmware/fw_bcmdhd_p2p.bin
     symlink /system/vendor/firmware/bcm4329.hcd /vendor/firmware/bcm4329.hcd
 
-    # HACK: We need to re-do the firmware
-    # mounting / symlinking this will do for now.
+    # TEMP HACK 
     symlink /system/vendor/lib /vendor/lib
 
     mkdir /vendor/etc 0771 system system
-    symlink /system/vendor/etc/audio_effects.conf /vendor/etc/audio_effects.conf
-    symlink /system/vendor/etc/audio_policy.conf /vendor/etc/audio_policy.conf
+    symlink /system/etc/audio_effects.conf /vendor/etc/audio_effects.conf
+    symlink /system/etc/audio_policy.conf /vendor/etc/audio_policy.conf
 
 on post-fs-data
     # double check the perms and set owner
@@ -305,10 +304,6 @@ service qcom-post-boot /system/bin/sh /system/etc/init.qcom.post_boot.sh
 on property:init.svc.bootanim=stopped
     start qcom-post-boot
 
-service 3d_camera /system/bin/3D_calibration
-    class main
-    user root
-
 # QMUX must be in multiple groups to support external process connections
 service qmuxd /system/bin/qmuxd
     class main
@@ -325,4 +320,6 @@ service dmagent /system/bin/dmagent -N -P19 -VSY
     group radio cache inet misc
 
 on property:sys.radio.shutdown=true
-   exec /system/bin/sh /system/etc/init.qcom.efs.sync.sh
+    write /sys/devices/platform/rs300000a7.65536/force_sync 1
+    write /sys/devices/platform/rs300100a7.65536/force_sync 1
+    exec /system/bin/sh /system/etc/init.qcom.efs.sync.sh

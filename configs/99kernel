@@ -2,6 +2,7 @@
 #Script originally made by Axetilen. Modified by Sultan (android1234567)
 #Updated for albinoman887's ChronicKernel (98% of the credit goes to android1234567. Thanks so much man :)
 #Updated for ChronicKernel-linaro
+#Updated for HTC rider
 
 # Configure your options here #
 
@@ -23,6 +24,7 @@ GOV=ondemand
 # cfq
 # noop
 # vr 
+# row
 # sio (default)
 IO=sio
 
@@ -72,13 +74,6 @@ BADASS=2
 SWEEP=0
 
 
-# Enable Fastcharge
-# 0 = disabled
-# 1 = substitute AC to USB charging always
-# 2 = substitute AC to USB charging only if there is no USB peripheral detected
-FASTCHARGE=1
-
-
 # Fsync Control
 # Disabled by default (recomended)
 # 2 = Fsync disabled
@@ -124,7 +119,7 @@ TUN=0
 
 # Config USB forced fastcharge
     chmod 644 /sys/kernel/fast_charge/force_fast_charge
-    echo "$FASTCHARGE" > /sys/kernel/fast_charge/force_fast_charge
+    echo 0 > /sys/kernel/fast_charge/force_fast_charge
 
 
 # Config Sweep2Wake (with compatibility with NLJ's fix)
