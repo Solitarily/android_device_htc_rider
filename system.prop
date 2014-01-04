@@ -2,6 +2,7 @@
 # system.prop for rider
 #
 ro.sf.lcd_density=240
+
 #
 # NETWORK/DATA/RADIO
 #
