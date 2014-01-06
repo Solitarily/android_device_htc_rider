@@ -14,7 +14,6 @@
 # limitations under the License.
 #
 
-
 # common msm8660 configs
 $(call inherit-product, device/htc/msm8660-common/msm8660.mk)
 
@@ -41,6 +40,7 @@ PRODUCT_COPY_FILES += \
     device/htc/rider/ramdisk/init.rider.rc:root/init.rider.rc \
     device/htc/rider/ramdisk/init.rider.usb.rc:root/init.rider.usb.rc \
     device/htc/rider/ramdisk/ueventd.rider.rc:root/ueventd.rider.rc
+    device/htc/rider/ramdisk/init.environ.rc:root/init.environ.rc
 
 ## recovery and custom charging
 PRODUCT_COPY_FILES += \
@@ -50,6 +50,8 @@ PRODUCT_COPY_FILES += \
     device/htc/rider/recovery/sbin/detect_key:recovery/root/sbin/detect_key \
     device/htc/rider/recovery/sbin/htcbatt:recovery/root/sbin/htcbatt
 
+#LIGHT
+PRODUCT_PACKAGES += lights.rider
 
 # keylayouts
 PRODUCT_COPY_FILES += \
@@ -68,21 +70,17 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/rider/idc/atmel-touchscreen.idc:system/usr/idc/atmel-touchscreen.idc
 
-# Some misc configuration files
-PRODUCT_COPY_FILES += \
-    device/htc/rider/configs/99kernel:system/etc/init.d/99kernel
-
 # HTC BT Audio tune
 PRODUCT_COPY_FILES += device/htc/rider/dsp/AudioBTID.csv:system/etc/AudioBTID.csv
 
 # Sound configs
 PRODUCT_COPY_FILES += \
-    device/htc/rider/dsp/AdieHWCodec.csv:system/etc/AdieHWCodec.csv \
+    device/htc/rider/dsp/audio_effects.conf:system/etc/audio_effects.conf \
     device/htc/rider/dsp/AIC3254_REG.csv:system/etc/AIC3254_REG.csv \
     device/htc/rider/dsp/AIC3254_REG_DualMic.csv:system/etc/AIC3254_REG_DualMic.csv \
+    device/htc/rider/dsp/AdieHWCodec.csv:system/etc/AdieHWCodec.csv \
     device/htc/rider/dsp/CodecDSPID.txt:system/etc/CodecDSPID.txt \
-    device/htc/rider/dsp/TPA2051_CFG.csv:system/etc/TPA2051_CFG.csv \
-    device/htc/rider/dsp/voicemail-conf.xml:system/etc/voicemail-conf.xml \
+    device/htc/rider/dsp/TPA2051_CFG.csv:system/etc/TPA2051_CFG.csv
 
 # Sound Image DSP
 PRODUCT_COPY_FILES += \
@@ -101,17 +99,18 @@ PRODUCT_COPY_FILES += \
     device/htc/rider/dsp/soundimage/Sound_Recording.txt:system/etc/soundimage/Sound_Recording.txt \
     device/htc/rider/dsp/soundimage/Sound_Rec_Portrait.txt:system/etc/soundimage/Sound_Rec_Portrait.txt \
     device/htc/rider/dsp/soundimage/Sound_Rec_Voice_record.txt:system/etc/soundimage/Sound_Rec_Voice_record.txt \
+    device/htc/rider/dsp/soundimage/srs_geq10.cfg:system/etc/soundimage/srs_geq10.cfg \
     device/htc/rider/dsp/soundimage/srsfx_trumedia_51.cfg:system/etc/soundimage/srsfx_trumedia_51.cfg \
     device/htc/rider/dsp/soundimage/srsfx_trumedia_movie.cfg:system/etc/soundimage/srsfx_trumedia_movie.cfg \
-    device/htc/rider/dsp/soundimage/srsfx_trumedia_music.cfg:system/etc/soundimage/srsfx_trumedia_music.cfg \
-    device/htc/rider/dsp/soundimage/srs_geq10.cfg:system/etc/soundimage/srs_geq10.cfg
-
+    device/htc/rider/dsp/soundimage/srsfx_trumedia_music.cfg:system/etc/soundimage/srsfx_trumedia_music.cfg
+    
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
 # Adreno Drivers
 PRODUCT_COPY_FILES += \
+    device/htc/rider/firmware/default_bak.acdb:system/etc/firmware/default_bak.acdb \
     device/htc/rider/firmware/a225_pfp.fw:system/etc/firmware/a225_pfp.fw \
     device/htc/rider/firmware/a225_pm4.fw:system/etc/firmware/a225_pm4.fw \
     device/htc/rider/firmware/a225p5_pm4.fw:system/etc/firmware/a225p5_pm4.fw \
@@ -119,12 +118,31 @@ PRODUCT_COPY_FILES += \
     device/htc/rider/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw
 
 # misc
+PRODUCT_COPY_FILES += \
+    device/htc/rider/vold.fstab:system/etc/vold.fstab
+
+# Required packages for WiMAX
+PRODUCT_PACKAGES += \
+    CMWimaxSettings\
+    libwimaxjni \
+    libnetutils
+
+# for boot
+PRODUCT_PACKAGES += \
+	libnetcmdiface
+
+# Set build date
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+
+# Set properties
+ADDITIONAL_DEFAULT_PROPERTIES += \
+	ro.secure=0
+
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.setupwizard.enable_bypass=1 \
     dalvik.vm.lockprof.threshold=500 \
     ro.com.google.locationfeatures=1 \
-    dalvik.vm.dexopt-flags=m=y \
-    ro.goo.version=$(shell date +%s)
+    dalvik.vm.dexopt-flags=m=y
 
 # call the proprietary setup
 $(call inherit-product-if-exists, vendor/htc/rider/rider-vendor.mk)
@@ -132,7 +150,7 @@ $(call inherit-product-if-exists, vendor/htc/rider/rider-vendor.mk)
 # media profiles and capabilities spec
 $(call inherit-product, device/htc/rider/media_a1026.mk)
 
-## htc audio settings
+# htc audio settings
 $(call inherit-product, device/htc/rider/media_htcaudio.mk)
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
