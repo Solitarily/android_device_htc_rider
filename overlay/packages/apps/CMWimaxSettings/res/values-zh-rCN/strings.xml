@@ -59,7 +59,7 @@
     <!-- Label for the IP address -->
     <string name="wimax_ip_address">IP 位址</string>
     <!-- Label for the gateway of the network -->
-    <string name="wimax_gateway">闸道</string>
+    <string name="wimax_gateway">通道</string>
 
     <!-- Status message of Wimax when it is scanning -->
     <string name="wimax_status_scanning">扫描中…</string>

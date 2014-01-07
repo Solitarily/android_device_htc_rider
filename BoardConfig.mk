@@ -23,6 +23,8 @@
 # inherit from common msm8660
 -include device/htc/msm8660-common/BoardConfigCommon.mk
 
+TARGET_SPECIFIC_HEADER_PATH := device/htc/rider/include
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := rider
 
