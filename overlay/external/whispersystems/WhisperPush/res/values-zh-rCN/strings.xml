@@ -29,8 +29,8 @@
     <string name="RegistrationActivity_you_must_specify_your_phone_number">您必须指定您的电话号码</string>
     <string name="RegistrationActivity_invalid_number">无效的号码</string>
     <string name="RegistrationActivity_the_number_you_specified_s_is_invalid">您指定的号码 (%s)是无效的。</string>
-    <string name="RegistrationActivity_unsupported">Unsupported</string>
-    <string name="RegistrationActivity_sorry_this_device_is_not_supported_for_data_messaging">对不起，不支持对数据消息这个装置。运行Android版本低于4.0的设备都必须有一个注册的谷歌帐户。运行Android4.0或更新的设备并不需要一个谷歌帐户，但必须安装播放存储的应用程序。</string>
+    <string name="RegistrationActivity_unsupported">不支持</string>
+    <string name="RegistrationActivity_sorry_this_device_is_not_supported_for_data_messaging">对不起，您的设备不支持消息加密。运行Android版本低于4.0的设备都必须有一个注册的谷歌帐户。运行Android4.0或更新的设备并不需要一个谷歌帐户，但必须安装播放存储应用程序。</string>
     <string name="RegistrationActivity_we_will_now_verify_that_the_following_number_is_associated_with_your_device_s">
         现在，我们将验证以下号码与设备关联：\n\n%s\n\n
          是这个数字正确，或者您想继续之前对其进行编辑？

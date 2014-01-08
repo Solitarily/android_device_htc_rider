@@ -8,19 +8,16 @@ on init
     export EXTERNAL_STORAGE /sdcard
 
     symlink /system/etc /etc
-    symlink /sbin/busybox /sbin/sh
 
-    chmod 0755 /sbin/busybox
-
+    mkdir /boot
     mkdir /sdcard
+    mkdir /sd-ext
+    mkdir /sd-ext2
+    mkdir /datadata
+    mkdir /emmc
     mkdir /system
     mkdir /data
-    mkdir /data/data
     mkdir /cache
-    mkdir /mtdcache
-    mkdir /devlog
-    mkdir /internal_sdcard
-    mkdir /usbdisk
     mount /tmp /tmp tmpfs
 
 on boot
@@ -38,6 +35,7 @@ service choice_fn /sbin/choice_fn
 oneshot
 
 service recovery /sbin/recovery
+disabled
 
 service power_test /sbin/power_test
 disabled

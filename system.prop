@@ -22,19 +22,6 @@ telephony.fake.simISO=kr
 telephony.fake.simSerial=
 
 ##############  FAKE TELEPHONY INFORMATION ###############
-
-
-# import from build.prop, rider
-ro.product.version=3.09.1010.8
-ro.product.model=X515e
-ro.product.brand=kt_kr
-ro.product.name=htc_rider
-ro.product.device=rider
-ro.product.board=rider
-#
-# system.prop for rider
-#
-
 ro.sf.lcd_density=240
 
 # radio
