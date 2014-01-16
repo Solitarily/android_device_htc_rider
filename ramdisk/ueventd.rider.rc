@@ -6,10 +6,12 @@
 /dev/kgsl-2d0           0666    root        root
 /dev/kgsl-3d0           0666    root        root
 /dev/kgsl-2d1           0666    root        root
-/dev/msm_rotator        0660    system      graphics
-/dev/ion                0664    system      graphics
-/dev/pmem               0666    system      graphics
 /dev/genlock            0666    root        root
+
+/dev/ion                0664    system      system
+
+/dev/msm_rotator        0660    system      graphics
+/dev/pmem               0660    system      graphics
 
 # camera
 /dev/gemini0            0660    system      camera
@@ -30,7 +32,7 @@
 /dev/timerirq           0664    system      system
 
 # audio
-/dev/msm_acdb	        0660    system      audio
+/dev/msm_acdb           0660    system      audio
 /dev/codec_aic3254      0660    system      audio
 /dev/msm_audio_dev_ctrl 0660    system      audio
 /dev/msm_mp3            0660    system      audio
