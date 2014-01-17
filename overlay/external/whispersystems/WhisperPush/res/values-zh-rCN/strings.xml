@@ -37,7 +37,7 @@
     </string>
     <string name="RegistrationActivity_continue">继续</string>
     <string name="RegistrationActivity_edit">编辑</string>
-    <string name="RegistrationActivity_connect_with_textsecure">连接与文字安全</string>
+    <string name="RegistrationActivity_connect_with_textsecure">连接TextSecure</string>
 
     <!-- RegistrationProblemsActivity -->
     <string name="RegistrationProblemsActivity_possible_problems">可能出现的问题</string>
@@ -84,11 +84,11 @@
     <string name="ViewIdentityActivity_the_scanned_key_matches">扫描的关键比赛！</string>
     <string name="ViewIdentityActivity_not_verified">未验证！</string>
     <string name="ViewIdentityActivity_warning_the_scanned_key_does_not_match">警告，扫描的密钥不匹配！</string>
-    <string name="ViewIdentityActivity_no_scanned_key_found">没有扫描键找到！</string>
+    <string name="ViewIdentityActivity_no_scanned_key_found">没有找到密钥！</string>
 
     <!-- country_selection_fragment -->
     <string name="country_selection_fragment__search">搜索</string>
-    <string name="country_selection_fragment__loading_countries">载入中 国家...</string>
+    <string name="country_selection_fragment__loading_countries">国家载入中...</string>
 
     <!-- registration_activity -->
     <string name="registration_activity__please_confirm_your_country_code_and_phone_number">请确认您的国家代码和电话号码。</string>
@@ -121,32 +121,32 @@
     <string name="registration_progress_activity__textsecure_was_unable_to_connect_to_the_push_service">TextSecure无法连接到推送服务。</string>
     <string name="registration_progress_activity__some_possible_problems_include">可能的问题如下：</string>
     <string name="registration_progress_activity__no_network_connectivity">没有网络连接。</string>
-    <string name="registration_progress_activity__your_device_needs_network_connectivity">您的设备需要，才能使用此TextSecure功能的网络连接。检查以确保它是连接到3G或无线上网。</string>
+    <string name="registration_progress_activity__your_device_needs_network_connectivity">您的设备需要连接到网络，才能使用TextSecure功能。检查以确保已连接到3G或无线网络。</string>
     <string name="registration_progress_activity__restrictive_firewall">严格的防火墙。</string>
     <string name="registration_progress_activity__if_you_are_connected_via_wifi_its_possible_that_there_is_a_firewall">如果您是通过无线连接，它\的可能是有防火墙阻止访问TextSecure服务器。尝试另一个网络或移动数据。</string>
     <string name="registration_progress_activity__textsecure_will_now_automatically_verify_your_number_with_a_confirmation_sms_message">TextSecure现在会自动验证您的电话号码与一个确认短信。</string>
-    <string name="registration_progress_activity__connecting">连线中...</string>
+    <string name="registration_progress_activity__connecting">连接中...</string>
     <string name="registration_progress_activity__waiting_for_sms_verification">等待短信验证... </string>
     <string name="registration_progress_activity__registering_with_server">注册与服务器...</string>
     <string name="registration_progress_activity__this_couild_take_a_moment_please_be_patient">这可能需要一段时间。请耐心等待，我们\'会通知您，当验证完成。</string>
     <string name="registration_progress_activity__textsecure_timed_out_while_waiting_for_a_verification_sms_message">TextSecure超时等待验证短信。</string>
     <string name="registration_progress_activity__sms_verification_failed">短信验证失败。</string>
     <string name="registration_progress_activity__generating_keys">生成密钥...</string>
-    <string name="registration_progress_activity__alert">警报</string>
+    <string name="registration_progress_activity__alert">警告</string>
     <string name="registration_progress_activity__check">校验</string>
     <string name="registration_progress_activity__telephone">电话</string>
     <string name="registration_progress_activity__timer_default" translatable="false">1:57</string>
 
     <!-- registration_completed_activity -->
     <string name="registration_completed_activity__registration_completed">注册完成</string>
-    <string name="registration_completed_activity__body">您已成功与TextSecure注册。</string>
+    <string name="registration_completed_activity__body">您已成功注册TextSecure。</string>
     <string name="registration_completed_activity__register_again">重新注册</string>
 
     <!-- review_identities_activity -->
-    <string name="review_identities_activity__you_don_t_currently_have_any_identity_keys_in_your_trust_database">您目前没有任何身份在你的信任数据库</string>
+    <string name="review_identities_activity__you_don_t_currently_have_any_identity_keys_in_your_trust_database">您的信任数据库目前没有任何身份密钥</string>
 
     <!-- verify_identities_activity -->
-    <string name="verify_identities_activity__no_pending_messages_that_require_validation">需要验证的任何未决消息。</string>
+    <string name="verify_identities_activity__no_pending_messages_that_require_validation">需要验证的任何未读消息。</string>
     <string name="verify_identity_activity__this_contacts_identity_fingerprint_has_changed">这种接触\的指纹身份发生了变化，这可能意味着有人试图拦截
         您的沟通，或者只是你的联系人有一个新的手机。考虑调用此联系人
         并验证指纹低于朗读它。从这个联系人的邮件将

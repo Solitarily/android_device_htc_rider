@@ -50,6 +50,10 @@ PRODUCT_COPY_FILES += \
     device/htc/rider/recovery/sbin/detect_key:recovery/root/sbin/detect_key \
     device/htc/rider/recovery/sbin/htcbatt:recovery/root/sbin/htcbatt
 
+# Some misc configuration files
+PRODUCT_COPY_FILES += \
+    device/htc/rider/configs/99kernel:system/etc/init.d/99kernel
+
 #LIGHT
 PRODUCT_PACKAGES += lights.rider
 
@@ -110,7 +114,6 @@ PRODUCT_COPY_FILES += \
 
 # Adreno Drivers
 PRODUCT_COPY_FILES += \
-    device/htc/rider/firmware/default_bak.acdb:system/etc/firmware/default_bak.acdb \
     device/htc/rider/firmware/a225_pfp.fw:system/etc/firmware/a225_pfp.fw \
     device/htc/rider/firmware/a225_pm4.fw:system/etc/firmware/a225_pm4.fw \
     device/htc/rider/firmware/a225p5_pm4.fw:system/etc/firmware/a225p5_pm4.fw \
@@ -123,17 +126,7 @@ PRODUCT_PACKAGES += \
     libwimaxjni \
     libnetutils
 
-# for boot
-PRODUCT_PACKAGES += \
-	libnetcmdiface
-
-# Set build date
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-
-# Set properties
-ADDITIONAL_DEFAULT_PROPERTIES += \
-	ro.secure=0
-
+## misc
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.setupwizard.enable_bypass=1 \
     dalvik.vm.lockprof.threshold=500 \
