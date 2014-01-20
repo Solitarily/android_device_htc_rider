@@ -119,12 +119,6 @@ on boot
     mkdir /data/misc/wifi/wpa_supplicant 0770 wifi wifi
     mkdir /data/misc/dhcp 0770 dhcp dhcp
 
-    #wimax
-    mkdir /data/misc/wimax 0770 wimax wimax
-    mkdir /data/misc/wimax/sockets 0770  wimax wimax
-    mkdir /data/wimax/ 0770  system system
-    mkdir /data/wimax/log 0770  system system
-
     # Make OOM settings stricter
     chown system system /sys/module/lowmemorykiller/parameters/minfree
     chmod 0666 /sys/module/lowmemorykiller/parameters/minfree
@@ -275,95 +269,6 @@ service fuse_sdcard0 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard0
 service fuse_usbdisk /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/usbdisk /storage/usbdisk
     class late_start
     disabled
-
-# wimax services
-service dhcpWimax /system/bin/dhcpcd -ABKL -f /etc/wimax/dhcp/wimaxDhcp.conf wimax0
-    disabled
-    oneshot
-    
-service sequansd /system/bin/sequansd /etc/wimax/sequansd/sequansd_app.xml
-    user root
-    group root inet
-    socket sequansd_0 dgram 660 root root
-    disabled
-    oneshot
-
-service wimaxDhcpRelease /system/bin/wimaxDhcpRelease
-	class main
-    user root
-    group root
-    disabled
-    oneshot
-
-service wimaxDhcpRenew /system/bin/wimaxDhcpRenew
-	class main
-    user root
-    group root
-    disabled
-    oneshot
-
-service wimaxAddRoute /system/bin/wimaxAddRoute
-	class main
-    user root
-    group root
-    disabled
-    oneshot
-
-service wimaxDumpLogcat /system/bin/wimaxDumpLogcat /data/wimax/log
-	class main
-    user root
-    group root
-    disabled
-    oneshot
-
-service wimaxDumpKmsg /system/bin/wimaxDumpKmsg /data/wimax/log
-	class main
-    user root
-    group root
-    disabled
-    oneshot
-
-service wimaxDumpLastKmsg /system/bin/wimaxDumpLastKmsg /data/wimax/log
-	class main    
-    user root
-    group root
-    disabled
-    oneshot
-
-service wmxCfgItf /system/bin/wimaxConfigInterface
-	class main
-    user root
-    group root
-    disabled
-    oneshot
-
-service wimaxDaemon /system/bin/wimaxDaemon
-   class main
-   user root
-   group root
-
-# wimax_mtd daemon
-service wimax_mtd /system/bin/wimax_mtd
-   class main
-   user root
-   group root
-   oneshot
-
-# setWMXPropd daemon
-service setWMXPropd /system/bin/setWiMAXPropDaemond
-	class main
-    user root
-    group root
-    oneshot
-
-# getWMXPropd daemon
-service getWMXPropd /system/bin/getWiMAXPropDaemond
-	class main
-    user root
-    group root
-    oneshot
-
-# wimax services end.
 
 on property:init.svc.bootanim=stopped
     start qcom-post-boot

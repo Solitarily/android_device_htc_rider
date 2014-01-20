@@ -39,8 +39,7 @@ PRODUCT_COPY_FILES += \
     device/htc/rider/ramdisk/fstab.rider:root/fstab.rider \
     device/htc/rider/ramdisk/init.rider.rc:root/init.rider.rc \
     device/htc/rider/ramdisk/init.rider.usb.rc:root/init.rider.usb.rc \
-    device/htc/rider/ramdisk/ueventd.rider.rc:root/ueventd.rider.rc \
-    device/htc/rider/ramdisk/init.environ.rc:root/init.environ.rc
+    device/htc/rider/ramdisk/ueventd.rider.rc:root/ueventd.rider.rc
 
 ## recovery and custom charging
 PRODUCT_COPY_FILES += \
@@ -119,12 +118,6 @@ PRODUCT_COPY_FILES += \
     device/htc/rider/firmware/a225p5_pm4.fw:system/etc/firmware/a225p5_pm4.fw \
     device/htc/rider/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
     device/htc/rider/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw
-
-# Required packages for WiMAX
-PRODUCT_PACKAGES += \
-    CMWimaxSettings\
-    libwimaxjni \
-    libnetutils
 
 ## misc
 PRODUCT_PROPERTY_OVERRIDES += \

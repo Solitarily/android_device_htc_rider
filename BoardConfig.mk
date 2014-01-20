@@ -23,8 +23,6 @@
 # inherit from common msm8660
 -include device/htc/msm8660-common/BoardConfigCommon.mk
 
-TARGET_SPECIFIC_HEADER_PATH := device/htc/rider/include
-
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := rider
 
@@ -60,8 +58,4 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 TARGET_RECOVERY_FSTAB = device/htc/rider/ramdisk/fstab.rider
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 RECOVERY_FSTAB_VERSION := 2
-
-# Wimax
-BOARD_HAVE_SQN_WIMAX := true
-COMMON_GLOBAL_CFLAGS += -DBOARD_HAVE_SQN_WIMAX
 
