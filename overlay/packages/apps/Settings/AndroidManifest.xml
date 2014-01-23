@@ -1828,10 +1828,7 @@
             android:theme="@style/ActivityTransparent" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-                <!-- <data  
-                    android:host="MainActivity"  
-                    android:scheme="com.android.exmple" /> -->
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
@@ -1841,10 +1838,7 @@
             android:theme="@style/ActivityTransparent" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-                <!-- <data  
-                    android:host="MainActivity"  
-                    android:scheme="com.android.exmple" /> -->
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
