@@ -64,6 +64,7 @@ DD=200000000
 # 3 = battery saving
 BADASS=2
 
+
 # Enable Fastcharge
 # 0 = disabled
 # 1 = substitute AC to USB charging always

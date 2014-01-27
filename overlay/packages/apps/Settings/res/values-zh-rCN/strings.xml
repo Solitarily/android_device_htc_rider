@@ -7,5 +7,6 @@
     <string name="lockscreen_buttons_summary">查看或改变在锁屏界面上按键的行为</string>
     <string name="ime_switcher_notify">输入法通知</string>
     <string name="ime_switcher_notify_summary">显示选择输入法的通知</string>
-    <string name="hardware_keys_action_launch_camera">启动相机</string>
+    <string name="hardware_keys_action_launch_camera">开启相机</string>
+    <string name="s2w_switch_title">S2W 开关选项</string>
 </resources>
