@@ -1,0 +1,78 @@
+on early-init
+    start ueventd
+
+on init
+    export PATH /sbin
+    export ANDROID_CACHE /cache
+    export ANDROID_ROOT /system
+    export ANDROID_DATA /data
+    export EXTERNAL_STORAGE /sdcard
+
+    symlink /system/etc /etc
+
+    mkdir /boot
+    mkdir /sdcard
+    mkdir /system
+    mkdir /data
+    mkdir /cache
+    mount /tmp /tmp tmpfs
+
+on boot
+
+    ifup lo
+    hostname localhost
+    domainname localdomain
+
+    class_start default
+
+service rmt_storage /sbin/rmt_storage
+
+service ueventd /sbin/ueventd
+    critical
+
+service choice_fn /sbin/choice_fn
+oneshot
+
+service recovery /sbin/recovery
+disabled
+
+service power_test /sbin/power_test
+disabled
+oneshot
+
+service offmode_charging /sbin/offmode_charging
+disabled
+oneshot
+
+service detect_key /sbin/detect_key
+disabled
+oneshot
+
+service htcbatt /sbin/htcbatt
+oneshot
+
+service adbd /sbin/adbd recovery
+    disabled
+
+# USB google mode configuration
+on property:sys.usb.config=mass_storage,adb
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 0bb4
+    write /sys/class/android_usb/android0/idProduct 0c86
+    write /sys/class/android_usb/android0/functions $sys.usb.config
+    write /sys/class/android_usb/android0/enable 1
+    write /sys/class/android_usb/android0/iManufacturer $ro.product.manufacturer
+    write /sys/class/android_usb/android0/iProduct $ro.product.model
+    write /sys/class/android_usb/android0/iSerial $ro.serialno
+    start adbd
+    setprop sys.usb.state $sys.usb.config
+
+# when changing the default configuration
+on property:persist.sys.usb.config=*
+    setprop sys.usb.config $persist.sys.usb.config
+
+# Restart adbd so it can run as root
+on property:service.adb.root=1
+    write /sys/class/android_usb/android0/enable 0
+    restart adbd
+    write /sys/class/android_usb/android0/enable 1
