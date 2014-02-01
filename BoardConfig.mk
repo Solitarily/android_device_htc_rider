@@ -29,6 +29,7 @@ TARGET_PREBUILT_KERNEL := device/htc/rider/kernel
 BOARD_HAS_NO_SELECT_BUTTON := true
 
 # MIUI RECOVERY
+#NO_AROMA_FILE_MANAGER := true
 MIUI_DEVICE_CONF := ../../../device/htc/rider/device.conf
 MIUI_INIT_CONF := ../../../device/htc/rider/init.conf
 #RECOVERY_HAS_DUALSYSTEM_PARTITIONS := true
