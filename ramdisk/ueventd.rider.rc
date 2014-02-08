@@ -25,9 +25,12 @@
 /dev/akm8975_aot        0640    compass     system
 /dev/cm3602             0640    compass     system
 /dev/lightsensor        0640    system      system
- 
-#for audio
-/dev/msm_acdb	        0660    system      audio
+/dev/mpu                0664    system      system
+/dev/mpuirq             0664    system      system
+/dev/timerirq           0664    system      system
+
+# audio
+/dev/msm_acdb           0660    system      audio
 /dev/codec_aic3254      0660    system      audio
 /dev/msm_audio_dev_ctrl 0660    system      audio
 /dev/control0           0660    system      audio

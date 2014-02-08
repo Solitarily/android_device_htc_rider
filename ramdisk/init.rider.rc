@@ -1,7 +1,7 @@
 import init.rider.usb.rc
 
 on early-init
-    mkdir /storage 0050 system sdcard_r
+    mkdir /storage 0050 root sdcard_r
     mkdir /storage/sdcard0 0000 system system
     mkdir /storage/usbdisk 0775 system system
     
@@ -77,15 +77,6 @@ on boot
     # for systrace
     mount debugfs /sys/kernel/debug /sys/kernel/debug
 
-    # for Invense MPU3050
-    chmod 0664 /dev/mpu
-    chmod 0664 /dev/mpuirq
-    chmod 0664 /dev/timerirq
-    chown system system /dev/mpu
-    chown system system /dev/mpuirq
-    chown system system /dev/timerirq
-
-
     # Chown polling nodes as needed from UI running on system server
     chmod 0664 /sys/devices/platform/msm_sdcc.1/polling
     chmod 0664 /sys/devices/platform/msm_sdcc.2/polling
@@ -124,9 +115,6 @@ on boot
     # radio
     mkdir /data/radio 2770 radio radio
 
-    # Permissions for touchscreen
-    chmod 0666          /sys/android_touch/unlock
-
     # liblights
     chown system system /sys/class/leds/green/brightness
     chown system system /sys/class/leds/green/blink
@@ -139,22 +127,10 @@ on boot
     chown system camera /sys/class/leds/flashlight/brightness
     chmod 0660          /sys/class/leds/flashlight/brightness
 
-    # for display
-    chown system system /sys/devices/virtual/graphics/fb1/format_3d 
-    chmod 0644		/sys/devices/virtual/graphics/fb1/format_3d 
-    chown system system	/sys/devices/platform/panel_3d/3D_mode
-    chmod 0644		/sys/devices/platform/panel_3d/3D_mode
+    # Kernel init script - kernel config
+    chmod 0777          /system/etc/init.d/99kernel
 
-    # for wireless modem
-    chown system system /dev/ttyHSUSB0
-    chown system system /dev/ttySA0
-    chown system system /dev/smd9
-
-    # for Flip to speaker
-    chown radio radio /sys/class/htc_accelerometer/accelerometer/PhoneOnOffFlag
-    chown radio radio /sys/class/htc_ecompass/ecompass/PhoneOnOffFlag
-
-    # for Optical sensors
+    # for optical sensors
     chown system system /sys/class/optical_sensors/lightsensor/ls_adc
     chown system system /sys/class/optical_sensors/lightsensor/ls_auto
     chown system system /sys/class/optical_sensors/lightsensor/ls_kadc
@@ -163,19 +139,6 @@ on boot
     chown system system /sys/class/optical_sensors/proximity/ps_led
     chown system system /sys/class/optical_sensors/proximity/ps_test_mode
 
-    # for cm performance
-    chown root system /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies
-    chown root system /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors
-    chown root system /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq
-    chown root system /sys/devices/system/cpu/cpu1/cpufreq/scaling_available_frequencies
-    chown root system /sys/devices/system/cpu/cpu1/cpufreq/scaling_available_governors
-    chown root system /sys/devices/system/cpu/cpu1/cpufreq/scaling_cur_freq
-    chown system /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
-
-    # for simlock
-    chown radio radio /dev/simlock
-    chmod 0660 /dev/simlock
-
     # for charging function
     chown radio radio /sys/module/htc_battery_8x60/parameters/phone_call
     chmod 0660 /sys/module/htc_battery_8x60/parameters/phone_call
@@ -183,18 +146,29 @@ on boot
     # to enable low charge current in voice call
     chown radio radio /sys/class/power_supply/battery/charger_control
     chmod 0660 /sys/class/power_supply/battery/charger_control
-    
-	# for Slate charging timer
-	chown radio /sys/class/power_supply/battery/charger_timer
+
+    # for slate charging timer
+    chown radio /sys/class/power_supply/battery/charger_timer
+
+    # for flip to speaker
+    chown radio radio /sys/class/htc_accelerometer/accelerometer/PhoneOnOffFlag
+    chown radio radio /sys/class/htc_ecompass/ecompass/PhoneOnOffFlag
+
+    # remove write permissions to video nodes
+    chmod 0644		/sys/devices/virtual/graphics/fb1/format_3d 
+    chown system system	/sys/devices/platform/panel_3d/3D_mode
+    chmod 0644		/sys/devices/platform/panel_3d/3D_mode
+
+    # Vibrator
+    chown system system sys/devices/platform/msm_ssbi.0/pm8058-core/pm8xxx-vib/amp
+    chmod 666 sys/devices/platform/msm_ssbi.0/pm8058-core/pm8xxx-vib/amp
+
+    # change owner and group for media server and surfaceflinger
+    chown system system /sys/devices/virtual/graphics/fb1/format_3d
 
     # sync fs
     chown system /sys/devices/platform/rs300000a7.65536/force_sync
     chown system /sys/devices/platform/rs300000a7.65536/sync_sts
-
-    # Overwrite framework low memory killer setting
-    write /sys/module/lowmemorykiller/parameters/minfree 2048,3072,4096,6144,8192,12288
-    write /sys/module/lowmemorykiller/parameters/minfile 2048,3072,4096,6144,8192,12288
-    write /sys/module/lowmemorykiller/parameters/check_filepages 1
 
 # SERVICE STARTS HERE
 
@@ -312,7 +286,10 @@ on property:init.svc.bootanim=stopped
 on property:ro.hdmi.enable=true
     start hdmid
 
+on property:service.adb.root=1
+    write /sys/class/android_usb/android0/enable 0
+    restart adbd
+    write /sys/class/android_usb/android0/enable 1
+
 on property:sys.radio.shutdown=true
-    write /sys/devices/platform/rs300000a7.65536/force_sync 1
-    write /sys/devices/platform/rs300100a7.65536/force_sync 1
     exec /system/bin/sh /system/etc/init.qcom.efs.sync.sh

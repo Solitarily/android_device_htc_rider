@@ -36,7 +36,8 @@ BOARD_KERNEL_CMDLINE := console=ttyHSL0 androidboot.hardware=rider no_console_su
 
 # Kernel [Build]
 TARGET_KERNEL_CONFIG := rider_defconfig
-TARGET_KERNEL_SOURCE := kernel/htc/msm8660
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := linaro-arm-cortex-a8
+TARGET_KERNEL_CUSTOM_TOOLCHAIN_SUFFIX := arm-cortex_a8-linux-gnueabi
 BUILD_KERNEL := true
 
 # Bluetooth/Wifi
