@@ -36,8 +36,7 @@ BOARD_KERNEL_CMDLINE := console=ttyHSL0 androidboot.hardware=rider no_console_su
 
 # Kernel [Build]
 TARGET_KERNEL_CONFIG := rider_defconfig
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := linaro-arm-cortex-a8
-TARGET_KERNEL_CUSTOM_TOOLCHAIN_SUFFIX := arm-cortex_a8-linux-gnueabi
+TARGET_KERNEL_SOURCE := kernel/htc/msm8660
 BUILD_KERNEL := true
 
 # Bluetooth/Wifi
@@ -57,3 +56,7 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16776192
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 838859776
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 1252770816
 BOARD_FLASH_BLOCK_SIZE := 262144
+
+# MIUI RECOVERY
+MIUI_DEVICE_CONF := ../../../device/htc/rider/device.conf
+MIUI_INIT_CONF := ../../../device/htc/rider/init.conf
