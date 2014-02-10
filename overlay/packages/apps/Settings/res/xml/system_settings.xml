@@ -41,6 +41,11 @@
         android:entryValues="@array/expanded_desktop_values"
         android:persistent="false" />
 
+    <CheckBoxPreference
+        android:key="expanded_desktop_no_navbar"
+        android:title="@string/power_menu_expanded_desktop"
+        android:persistent="false" />
+
     <PreferenceScreen
         android:title="@string/s2w_switch_title" >
         <intent
@@ -48,11 +53,6 @@
             android:targetPackage="com.android.sweep2wake"
             android:targetClass="com.android.sweep2wake.S2WMainActivity" />
     </PreferenceScreen>
-
-    <CheckBoxPreference
-        android:key="expanded_desktop_no_navbar"
-        android:title="@string/power_menu_expanded_desktop"
-        android:persistent="false" />
 
     <PreferenceScreen
         android:key="power_menu"
