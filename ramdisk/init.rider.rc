@@ -106,12 +106,6 @@ on boot
     mkdir /data/misc/dhcp 0770 dhcp dhcp
     chown dhcp dhcp /data/misc/dhcp
 
-    #wimax
-    mkdir /data/misc/wimax 0770 wimax wimax
-    mkdir /data/misc/wimax/sockets 0770  wimax wimax
-    mkdir /data/wimax/ 0770  system system
-    mkdir /data/wimax/log 0770  system system
-
     # symlink for HDMI
     symlink /dev/graphics/fb1 /dev/graphics/hdmi
 
@@ -245,95 +239,6 @@ on property:ro.use_data_netmgrd=false
 
 on property:ro.emmc=1
     start rmt_storage
-
-# wimax services
-service dhcpWimax /system/bin/dhcpcd -ABKL -f /etc/wimax/dhcp/wimaxDhcp.conf wimax0
-    disabled
-    oneshot
-    
-service sequansd /system/bin/sequansd /etc/wimax/sequansd/sequansd_app.xml
-    user root
-    group root inet
-    socket sequansd_0 dgram 660 root root
-    disabled
-    oneshot
-
-service wimaxDhcpRelease /system/bin/wimaxDhcpRelease
-	class main
-    user root
-    group root
-    disabled
-    oneshot
-
-service wimaxDhcpRenew /system/bin/wimaxDhcpRenew
-	class main
-    user root
-    group root
-    disabled
-    oneshot
-
-service wimaxAddRoute /system/bin/wimaxAddRoute
-	class main
-    user root
-    group root
-    disabled
-    oneshot
-
-service wimaxDumpLogcat /system/bin/wimaxDumpLogcat /data/wimax/log
-	class main
-    user root
-    group root
-    disabled
-    oneshot
-
-service wimaxDumpKmsg /system/bin/wimaxDumpKmsg /data/wimax/log
-	class main
-    user root
-    group root
-    disabled
-    oneshot
-
-service wimaxDumpLastKmsg /system/bin/wimaxDumpLastKmsg /data/wimax/log
-	class main    
-    user root
-    group root
-    disabled
-    oneshot
-
-service wmxCfgItf /system/bin/wimaxConfigInterface
-	class main
-    user root
-    group root
-    disabled
-    oneshot
-
-service wimaxDaemon /system/bin/wimaxDaemon
-   class main
-   user root
-   group root
-
-# wimax_mtd daemon
-service wimax_mtd /system/bin/wimax_mtd
-   class main
-   user root
-   group root
-   oneshot
-
-# setWMXPropd daemon
-service setWMXPropd /system/bin/setWiMAXPropDaemond
-	class main
-    user root
-    group root
-    oneshot
-
-# getWMXPropd daemon
-service getWMXPropd /system/bin/getWiMAXPropDaemond
-	class main
-    user root
-    group root
-    oneshot
-
-# wimax services end.
 
 service dmagent /system/bin/dmagent -N -P19 -VSY
     socket dmagent stream 660 root radio

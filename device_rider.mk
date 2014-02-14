@@ -27,12 +27,6 @@ DEVICE_PACKAGE_OVERLAYS += device/htc/rider/overlay
 PRODUCT_PACKAGES += \
     gps.rider
 
-# Wimax
-PRODUCT_PACKAGES += \
-    CMWimaxSettings\
-    libwimaxjni \
-    libnetutils
-
 #LIGHT
 PRODUCT_PACKAGES += \
     lights.rider
@@ -47,7 +41,6 @@ $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329
 
 # Boot ramdisk setup
 PRODUCT_COPY_FILES += \
-    device/htc/rider/ramdisk/init.rc:root/init.rc \
     device/htc/rider/ramdisk/fstab.rider:root/fstab.rider \
     device/htc/rider/ramdisk/init.rider.rc:root/init.rider.rc \
     device/htc/rider/ramdisk/init.rider.usb.rc:root/init.rider.usb.rc \
