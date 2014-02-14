@@ -31,7 +31,7 @@
     <integer name="config_defaultNotificationLedOff">9000</integer>
 
     <!-- Our amoled doesn't animate well. -->
-    <bool name="config_animateScreenLights">false</bool>
+    <bool name="config_animateScreenLights">true</bool>
 
     <!-- disable menu hard key on Pyramid in non-pattern lockscreen -->
     <bool name="config_disableMenuKeyInLockScreen">true</bool>
@@ -133,6 +133,7 @@
     <!-- the 6th element indicates boot-time dependency-met value. -->
     <string-array translatable="false" name="networkAttributes">
         <item>"wifi,1,1,1,-1,true"</item>
+        <item>"wimax,6,6,2,-1,true"</item>
         <item>"mobile,0,0,0,-1,true"</item>
         <item>"mobile_mms,2,0,2,60000,true"</item>
         <item>"mobile_supl,3,0,2,60000,true"</item>
@@ -145,6 +146,7 @@
     <!-- An Array of "[ConnectivityManager connectionType],
          [# simultaneous connection types]"  -->
     <string-array translatable="false" name="radioAttributes">
+		<item>"6,1"</item>
         <item>"1,1"</item>
         <item>"0,1"</item>
         <item>"7,1"</item>
@@ -155,6 +157,7 @@
          be empty.  An example would be "usb.*" -->
     <string-array translatable="false" name="config_tether_usb_regexs">
         <item>"rndis0"</item>
+        <item>"usb0"</item>
     </string-array>
 
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
@@ -178,6 +181,7 @@
         <item>0</item>
         <item>1</item>
         <item>5</item>
+		<item>6</item>
         <item>7</item>
     </integer-array>
 
@@ -203,4 +207,26 @@
     <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveBatteryLed">true</bool>
 
+    <bool name="config_wimaxEnabled">true</bool>
+    <!-- Location of the wimax framwork jar location -->
+    <string name="config_wimaxServiceJarLocation" translatable="false">/system/framework/wimax.jar</string>
+    <!-- Location of the wimax native library locaiton -->
+    <string name="config_wimaxNativeLibLocation" translatable="false">/system/lib/libwimaxjni.so</string>
+
+
+    <!-- Name of the wimax manager class -->
+    <string name="config_wimaxManagerClassname" translatable="false">com.htc.net.wimax.WimaxController</string>
+
+    <!-- Name of the wimax service class -->
+    <string name="config_wimaxServiceClassname" translatable="false">com.htc.net.wimax.WimaxService</string>
+
+    <!-- Name of the wimax state tracker clas -->
+    <string name="config_wimaxStateTrackerClassname" translatable="false">com.htc.net.wimax.WimaxStateTracker</string>
+
+    <!-- List of regexpressions describing the interface (if any) that represent tetherable
+         WiMAX interfaces.  If the device doesn't want to support tethering over Wifi this
+         should be empty.  An example would be "softap.*" -->
+    <string-array translatable="false" name="config_tether_wimax_regexs">
+        <item>"wimax\\d"</item>
+    </string-array>
 </resources>
