@@ -65,6 +65,7 @@
         <item>321</item>
         <item>641</item>
         <item>1281</item>
+        <item>1951</item>
         <item>2601</item>
     </integer-array>
 
@@ -73,15 +74,16 @@
          than the size of the config_autoBrightnessLevels array.
     -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>56</item>
-        <item>56</item>
-        <item>56</item>
-        <item>90</item>
-        <item>117</item>
-        <item>142</item>
-        <item>170</item>
-        <item>198</item>
-        <item>227</item>
+        <item>40</item>
+        <item>40</item>
+        <item>44</item>
+        <item>59</item>
+        <item>79</item>
+        <item>94</item>
+        <item>130</item>
+        <item>155</item>
+        <item>182</item>
+        <item>209</item>
         <item>255</item>
     </integer-array>
 
@@ -145,7 +147,6 @@
     <!-- An Array of "[ConnectivityManager connectionType],
          [# simultaneous connection types]"  -->
     <string-array translatable="false" name="radioAttributes">
-		<item>"6,1"</item>
         <item>"1,1"</item>
         <item>"0,1"</item>
         <item>"7,1"</item>
@@ -156,7 +157,6 @@
          be empty.  An example would be "usb.*" -->
     <string-array translatable="false" name="config_tether_usb_regexs">
         <item>"rndis0"</item>
-        <item>"usb0"</item>
     </string-array>
 
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
@@ -180,7 +180,6 @@
         <item>0</item>
         <item>1</item>
         <item>5</item>
-		<item>6</item>
         <item>7</item>
     </integer-array>
 
