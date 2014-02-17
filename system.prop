@@ -5,9 +5,9 @@ ro.sf.lcd_density=240
 #
 # NETWORK/DATA/RADIO
 #
-mobiledata.interfaces=rmnet0
+mobiledata.interfaces=wimax0,rmnet0,wlan0,gprs,ppp0
 rild.libpath=/system/lib/libhtc_ril.so
-ro.telephony.ril.v3=datacallapn,signalstrength,skipNullAid,writeaidonly
+ro.telephony.ril.v3=datacallapn,signalstrength
 #
 # T-Mobile data drop fix, uncomment if you have this issue
 # and delete above line
@@ -27,6 +27,7 @@ ro.ril.hsdpa.category=10
 ro.ril.hsupa.category=6  
 ro.ril.hsxpa=3
 ro.ril.set.mtu1472=1
+ro.ril.disable.mcc.filter=1
 wifi.interface=wlan0
 wifi.supplicant_scan_interval=160
 #
@@ -34,8 +35,6 @@ wifi.supplicant_scan_interval=160
 #
 ro.ril.disable.power.collapse=0
 pm.sleep_mode=1
-
-mobiledata.interfaces=wimax0,rmnet0,wlan0,gprs,ppp0
 #
 # Misc
 #

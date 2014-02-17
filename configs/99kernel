@@ -65,13 +65,6 @@ DD=200000000
 BADASS=2
 
 
-# Enable Sweep2Wake
-# 0 = disabled (default)
-# 1 = enabled
-# 2 = enabled (with no button backlight during sweep)
-SWEEP=0
-
-
 # Enable Fastcharge
 # 0 = disabled
 # 1 = substitute AC to USB charging always
