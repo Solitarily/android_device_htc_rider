@@ -14,5 +14,5 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="phoneTypeCar">车载</string>
+    <string name="profileNameAutomobile">车载</string>
 </resources>
