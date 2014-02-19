@@ -198,11 +198,11 @@
     <string name="bad_behavior_anr_service_label">ANR 启动一个服务</string>
     <string name="bad_behavior_anr_system_label">系统 ANR （在ActivityManager）</string>
     <string name="bad_behavior_wedge_system_label">楔板系统（5分钟系统 ANR）</string>
-    <string name="cache_abuser_start_internal_abuse">快速滥用内部缓存</string>
-    <string name="cache_abuser_start_slow_internal_abuse">慢慢地滥用内部缓存</string>
-    <string name="cache_abuser_start_external_abuse">快速滥用外部高速缓存</string>
-    <string name="cache_abuser_start_slow_external_abuse">慢慢地滥用外部高速缓存</string>
-    <string name="cache_abuser_stop_abuse">停止缓存滥用</string>
+    <string name="cache_abuser_start_internal_abuse">快速消耗内部缓存</string>
+    <string name="cache_abuser_start_slow_internal_abuse">慢慢消耗内部缓存</string>
+    <string name="cache_abuser_start_external_abuse">快速消耗外部高速缓存</string>
+    <string name="cache_abuser_start_slow_external_abuse">慢慢消耗外部高速缓存</string>
+    <string name="cache_abuser_stop_abuse">停止缓存消耗</string>
     <string name="scancard">扫描SD卡</string>
     <string name="numsongs"># 专辑</string>
     <string name="insertbutton">插入 %1s 专辑</string>
