@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012-2013 The CyanogenMod Project
+<!--
+     Copyright (C) 2012-2014 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,13 +14,18 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_data_connection_HP">HSPA+</string>
+
+    <!-- Content description of the data connection type DC-HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_data_connection_DC">DCHSPAP</string>
+
     <string name="accessibility_quick_settings_ringer">声音 <xliff:g id="state" example="Off">%s</xliff:g>.</string>
     <string name="accessibility_quick_settings_vibration">振动 <xliff:g id="state" example="Off">%s</xliff:g>.</string>
 
-    <string name="bean_dream_settings_cid_title">使用 Cid 的头像</string>
-    <string name="bean_dream_settings_cid_summary">在大乱舞内使用 Cid 的头像替代奇巧</string>
+    <string name="dessert_case_settings_cm_title">显示 CM\'s 吉祥物</string>
+    <string name="dessert_case_settings_cm_summary">显示 CM\'s 吉祥物和 Android\'s 吉祥物</string>
 
     <!-- QuickSettings: Profile [CHAR LIMIT=NONE] -->
     <string name="quick_settings_profile_label">情景模式</string>
@@ -81,4 +87,14 @@
     <!-- Development shortcut -->
     <string name="advanced_dev_option_wipe_app">清除数据</string>
     <string name="advanced_dev_option_force_stop">强行停止</string>
+
+    <!-- Content description of the dock battery level icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_dock_battery_level">Dock battery <xliff:g id="number">%d</xliff:g> percent.</string>
+
+    <!-- Screenshot delete -->
+    <string name="screenshot_delete_action">删除</string>
+    <string name="screenshot_delete_confirmation">删除截图.</string>
+
+    <!-- Content description for the add quick settings tile button. [CHAR LIMIT=NONE] -->
+    <string name="accessibility_desc_add_quick_settings">新增快速设置.</string>
 </resources>
