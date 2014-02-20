@@ -140,4 +140,8 @@
     <string name="custom_runtime_warning_message">CyanogenMod 不提供对 ART 的技术支持。此设置仅用于实验，有可能造成不稳定，死机，数据丢失或您的设备无法正常开机。访问&lt;a href=\"http://source.android.com/devices/tech/dalvik/art.html\">介绍ART&lt;/a>了解更多信息。&lt;br/>&lt;br/>如果您已启用 ART 请不要提交错误报告&lt;br/>&lt;br/>您确定要重新启动从%1$s运行库更改到%2$s运行库吗？</string>
     <string name="edge_gesture_service_title">拦截手势触摸事件 </string>
     <string name="edge_gesture_service_summary">不发送导航栏和状态栏的手势触摸事件至应用程序</string>
+    <string name="screen_animation_off_title">关屏动画 </string>
+    <string name="screen_animation_style_title">动画风格 </string>
+    <string name="screen_animation_style_electronbeam">CRT特效</string>
+    <string name="screen_animation_style_fade">淡出</string>
 </resources>
