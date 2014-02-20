@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="custom_runtime_warning_title">警告</string>
-    <string name="custom_runtime_warning_message">CyanogenMod 不提供对 ART 的技术支持。此设置仅用于实验，有可能造成不稳定，死机，数据丢失或您的设备无法正常开机。访问&lt;a href=\"http://source.android.com/devices/tech/dalvik/art.html\">介绍ART&lt;/a>了解更多信息。&lt;br/>&lt;br/>如果您已启用 ART 请不要提交错误报告&lt;br/>&lt;br/>您确定要重新启动从%1$s运行库更改到%2$s运行库吗？</string>
-    <string name="wimax_settings">4G网络</string>
-    <string name="lockscreen_buttons_title">按键行为</string>
-    <string name="lockscreen_buttons_summary">查看或改变在锁屏界面上按键的行为</string>
-    <string name="ime_switcher_notify">输入法通知</string>
-    <string name="ime_switcher_notify_summary">显示选择输入法的通知</string>
+    <string name="custom_runtime_warning_message">MoKee OpenSource 不提供对 ART 的技术支持。此设置仅用于实验，有可能造成不稳定，死机，数据丢失或您的设备无法正常开机。访问&lt;a href=\"http://source.android.com/devices/tech/dalvik/art.html\">介绍ART&lt;/a>了解更多信息。&lt;br/>&lt;br/>如果您已启用 ART 请不要提交错误报告&lt;br/>&lt;br/>您确定要重新启动从%1$s运行库更改到%2$s运行库吗？</string>
+    <string name="wimax_settings">4G 网络</string>
     <string name="hardware_keys_action_launch_camera">开启相机</string>
     <string name="s2w_switch_title">S2W 开关选项</string>
+    <string name="edge_gesture_service_title">拦截手势触摸事件 </string>
+    <string name="edge_gesture_service_summary">不发送导航栏和状态栏的手势触摸事件至应用程序</string>
 </resources>
