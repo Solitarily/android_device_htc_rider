@@ -10,33 +10,38 @@
 # For better battery life switch to badass
 # Kernel Default: ondemand
 # Possible values
-#  badass
-#  ondemand
-#  interactive
-#= lagfee
-#  performance
+# badas
+# intellidemand
+# smartass2
+# interactive
+# conservative
+# userspace
+# powersave
+# ondemand
+# performance
 GOV=ondemand
 
 
 # Config I/O scheduler
-# deadline
-# cfq
 # noop
+# deadline
+# row
+# cfq
 # vr 
 # sio (default)
 IO=sio
 
 
 # Config CPU max frequency
-# Default: 1566000 (1566Mhtz)
+# Default: 1350000 (1350Mhtz)
 # Overclockable to - 1836000 (1836Mhtz)
-# for badass set to 1566mhtz (best performance/battery life)
-MAXFREQ=1566000
+# for badass set to 1350mhtz (best performance/battery life)
+MAXFREQ=1350000
 
 
 # Config CPU min frequency
 # Default: 384000 (384Mhtz)
-# Range 384000 - 1944000 (384Mhtz - 1944Mhtz)
+# Range 384000 - 1836000 (384Mhtz - 1836Mhtz)
 MINFREQ=384000
 
 
