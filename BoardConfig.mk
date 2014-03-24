@@ -34,10 +34,10 @@ BOARD_KERNEL_BASE := 0x48000000
 BOARD_KERNEL_PAGE_SIZE := 2048
 BOARD_KERNEL_CMDLINE := console=ttyHSL0 androidboot.hardware=rider no_console_suspend=1
 
-# Kernel [Build]
-TARGET_KERNEL_CONFIG := rider_defconfig
-TARGET_KERNEL_SOURCE := kernel/htc/msm8660
-BUILD_KERNEL := true
+LOCAL_KERNEL := device/htc/rider/kernel
+
+PRODUCT_COPY_FILES := \
+	$(LOCAL_KERNEL):kernel
 
 # Bluetooth/Wifi
 -include device/htc/msm8660-common/bcmdhd.mk

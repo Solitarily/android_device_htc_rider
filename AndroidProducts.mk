@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/device_rider.mk
+    $(LOCAL_DIR)/full_rider.mk

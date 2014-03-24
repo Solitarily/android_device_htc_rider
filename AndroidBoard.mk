@@ -20,6 +20,10 @@
 
 LOCAL_PATH := $(call my-dir)
 
+ifeq ($(TARGET_PREBUILT_KERNEL),)
+TARGET_PREBUILT_KERNEL := device/htc/rider/kernel
+endif
+
 # Least specific includes go first, so that they can get
 # overridden further down
 include $(CLEAR_VARS)
