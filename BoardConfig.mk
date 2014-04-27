@@ -23,9 +23,6 @@
 # inherit from common msm8660
 -include device/htc/msm8660-common/BoardConfigCommon.mk
 
-# Audio
-BOARD_HAVE_HTC_AUDIO := true
-
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := rider
 
@@ -45,9 +42,12 @@ BUILD_KERNEL := true
 # Qcom GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := rider
 
+# FM Radio
+BOARD_HAVE_FM_RADIO := true
+BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
+
 # RIL
 BOARD_USES_LEGACY_RIL := true
-BOARD_USE_NEW_LIBRIL_HTC := true
 
 # Filesystem
 TARGET_USERIMAGES_USE_EXT4 := true
